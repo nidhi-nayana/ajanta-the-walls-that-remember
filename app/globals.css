@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #100D0B;
+  --foreground: #E7D5B5;
+  --gold: #C5A15A;
+  --sandstone: #C6A77A;
+  --sienna: #A34D32;
+  --charcoal: #211B17;
+  --parchment: #E7D5B5;
+  --forest-green: #344638;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #100D0B;
+  color: #E7D5B5;
+  scroll-behavior: smooth;
+  font-family: var(--font-dmsans), -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #100D0B;
+  color: #E7D5B5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  selection-background-color: #A34D32;
+  selection-color: #E7D5B5;
+}
+
+::selection {
+  background: #A34D32;
+  color: #FFF2DF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #100D0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3D3128;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A15A;
+}
+
+/* Subtle Film & Cave Rock Grain overlay */
+.cave-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ancient Gold Foil Inscription */
+.gold-emboss {
+  background: linear-gradient(135deg, #FFF2DF 0%, #C5A15A 50%, #8C6228 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(197, 161, 90, 0.25);
+}
+
+.sienna-gradient {
+  background: linear-gradient(135deg, #E7D5B5 0%, #C6A77A 40%, #A34D32 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Fresco Rock border */
+.fresco-border {
+  border: 1px solid rgba(197, 161, 90, 0.22);
+  box-shadow: inset 0 0 20px rgba(16, 13, 11, 0.8), 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.fresco-panel {
+  background: linear-gradient(145deg, rgba(33, 27, 23, 0.85), rgba(16, 13, 11, 0.95));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(198, 167, 122, 0.18);
+}
+
+/* Interactive Cursor */
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #C5A15A;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.1s ease-out;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #C5A15A;
+}
+
+.custom-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(197, 161, 90, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.22s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
